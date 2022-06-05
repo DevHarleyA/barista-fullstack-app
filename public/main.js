@@ -1,8 +1,47 @@
-// 1. Cashier can send orders with customer name to the database (post) => completed
-// 2. Baristas can log in and see the orders (sign in) => "add the order to a queue"
-// 3. Baristas can mark the order complete (update)
-// 4. Completed orders should show which Barista completed the order and have thier own list (can filter population results)
-// Bonus: app automatically says the customer's name out loud when the order is complete
+//Order Form Actions
+
+const coffee = document.getElementsByClassName('coffee')
+const size = document.getElementsByClassName('size')
+const temp = document.getElementsByClassName('temp')
+const cream = document.getElementsByClassName('cream')
+const flavor = document.getElementsByClassName('flavor')
+
+Array.from(coffee).forEach(function (element){
+  element.addEventListener('click', function() {
+    console.log(element.value)
+    document.querySelector('.coffeeOrder').value = element.value
+  })
+})
+
+Array.from(size).forEach(function (element){
+  element.addEventListener('click', function() {
+    console.log(element.value)
+    document.querySelector('.coffeeSize').value = element.value
+  })
+})
+
+Array.from(temp).forEach(function (element){
+  element.addEventListener('click', function() {
+    console.log(element.value)
+    document.querySelector('.coffeeTemp').value = element.value
+  })
+})
+
+Array.from(cream).forEach(function (element){
+  element.addEventListener('click', function() {
+    console.log(element.value)
+    document.querySelector('.coffeeCream').value = element.value
+  })
+})
+
+Array.from(flavor).forEach(function (element){
+  element.addEventListener('click', function() {
+    console.log(element.value)
+    document.querySelector('.coffeeFlavor').value = element.value
+  })
+})
+
+// Barista Profile Actions
 const complete = document.getElementsByClassName("fa-circle-check")
 const remove = document.getElementsByClassName("fa-ban");
 
@@ -25,6 +64,10 @@ Array.from(complete).forEach(function (element) {
         .then(data => {
           console.log(data)
           window.location.reload(true)
+//           const readyOrder = document.querySelector('.sayMe').innerText
+// let announcement = new SpeechSynthesisUtterancce(readyOrder)
+// window.speechSynthesis
+// .speak(announcement)
         })
     })
   })  
@@ -47,3 +90,5 @@ Array.from(remove).forEach(function(element) {
     })
   });
 });
+
+

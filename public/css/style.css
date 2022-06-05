@@ -1,0 +1,113 @@
+/* Font Family */
+
+.html {
+    font-size: 62.5%;
+}
+
+body, h2, .h2, .lists, .h3, .sayMe {
+    font-family: 'Mali', cursive;
+}
+
+h2, .lists, .h3 {
+    font-weight: 700;
+}
+
+.logo {
+    width: 20%;
+    border: 5px solid black;
+}
+
+/* button styles */
+
+.coffee, .btn, .size, .cream, .flavor {
+    margin: 1%;
+}
+
+.coffee, .temp, .cream, .size, .flavor {
+    background: #4369c9;
+}
+
+.tea {
+    background: #39b48c;
+}
+
+.red {
+    background: rgba(209,82,76,255);
+}
+
+/* Image Background */
+
+.order, .index, .login, .signUp, .profile, .local {
+    background: url(../img/waterfall1920.jpg);
+}
+
+/* Well Color Changes */
+
+.jumbotron {
+    background: #1a6985;
+    color: beige;
+}
+
+.cust {
+    background: rgba(26,105,133, .97);
+    color: beige;
+    padding: 1%;
+    border-radius: 2%;
+}
+
+.custTwo {
+    background: rgba(26,105,133,.87);
+    color: beige;
+    padding: 1%;
+    border-radius: 2%;
+}
+
+/* Order Form Styling */
+
+.box {
+    display: flex;
+}
+
+.buttons {
+    width: 60%;
+}
+
+.orderForm {
+    width: 40%;
+}
+
+.details {
+    margin: 5%;
+}
+
+/* Profile Page Styling */
+
+.name {
+    display: none;
+}
+
+.lists {
+    text-align: center;
+    text-decoration: underline;
+}
+
+.note {
+    background-color: antiquewhite;
+    color: black;
+    padding: 1% 0% 1% 6%;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.h3 {
+    color:#91a4d5;
+}
+
+.sayMe {
+    color: #39b48c;
+    font-weight: 700;
+}
+
+.uno {
+    padding: 5% 0% 5% 6%;
+}

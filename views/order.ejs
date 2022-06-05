@@ -1,59 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Camel Cup</title>
+    <title>Iguazu Cafe</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/265ed8ed5a.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mali:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <h1>Welcome to Camel Cup!</h1>
-    <h4>Please submit an order.</h4>
-    <a href="/index" class="">Login or Sign-Up</a>
 
-    <form action="/newOrder" method="POST">
-        <label for="name">Customer Name:</label>
-        <input type="text" placeholder="Customer Name" name="name">
-        <label for="coffee">Coffee Choice:</label>
-        <!-- Come back and replace values with coffee names & regions -->
-        <select name="coffee">
-            <option value="brazilian">Brazilian</option>
-            <option value="colombian">Colombian</option>
-            <option value="costa rican">Costa Rican</option>
-            <option value="jamaican">Jamaican</option>
-            <option value="ethiopian">Ethiopian</option>
-            <option value="haitian">Haitian</option>
-        </select>
-        <label for="size">Size:</label>
-        <select name="size">
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
-        </select>
-        <label for="temp">Hot or Cold?</label>
-        <select name="temp">
-            <option value="hot">Hot</option>
-            <option value="cold">Cold</option>
-        </select>
-        <label for="cream">Cream?</label>
-        <select name="cream">
-            <option value="none">None</option>
-            <option value="dairy">Regular</option>
-            <option value="almond">Almond</option>
-            <option value="soy">Soy</option>
-        </select>
-        <label for="flavor">Add flavor?</label>
-        <select name="flavor">
-            <option value="none">None</option>
-            <option value="French Vanilla">French Vanilla</option>
-            <option value="Hazelnut">Hazelnut</option>
-            <option value="Caramel">Caramel</option>
-            <option value="Mocha">Mocha</option>
-        </select>
-        <button type="submit">Submit Order</button>
-    </form>
+<body class="order">
+    <!-- Collaborative House Project -->
+    <div class="text-center">
+        <a href="/index" class="btn btn-default"><img src="img/logo.png" alt="" class="logo"><br>Login or Sign-Up</a>
+    </div>
+
+    <div class="container custTwo box">
+        <div class="buttons">
+            <div class="row text-center">
+                <h2>size</h2>
+                <button class="size btn-lg btn-warning" value="small">Small</button>
+                <button class="size btn-lg btn-warning" value="medium">Medium</button>
+                <button class="size btn-lg btn-warning" value="large">Large</button> 
+
+                <h2>coffee type</h2>
+                <button class="coffee btn-lg btn-warning" value="Café Pilão (Brazilian)">Brazilian</button>
+                <button class="coffee btn-lg btn-warning" value="Colombia El Cedro">Colombian</button>
+                <button class="coffee btn-lg btn-warning" value="Volcanica Costa Rican Peaberry">Costa Rican</button>
+                <button class="coffee btn-lg btn-warning" value="Jamaica Blue Mountain">Jamaican</button>
+                <button class="coffee btn-lg btn-warning" value="Organic Yirgacheffe Kochere">Ethiopian</button>
+                <button class="coffee btn-lg btn-warning" value="Café rébo (Haitian)">Haitian</button>
+                <button class="coffee tea btn-lg btn-warning" value="English Breakfast">Black Tea</button>
+                <button class="coffee tea btn-lg btn-warning" value="Buddha Teas Organic Sencha">Green Tea</button>
+
+            </div>
+            <div class="row text-center">
+
+                <h2>hot or iced</h2>
+                <button class="temp btn-lg btn-warning" value="hot">Hot</button>
+                <button class="temp btn-lg btn-warning" value="iced">Iced</button>
+
+                <h2>cream: dairy & non-dairy</h2>
+                <button class="cream btn-lg btn-warning" value="dairy">Dairy</button>
+                <button class="cream btn-lg btn-warning" value="soy">Soy</button>
+                <button class="cream btn-lg btn-warning" value="almond">Almond</button>
+                <button class="cream btn-lg btn-danger red" value="none">None</button>
+
+                <h2>flavor</h2>
+                <button class="flavor btn-lg btn-warning" value="french vanilla">French Vanilla</button>
+                <button class="flavor btn-lg btn-warning" value="hazelnut">Hazelnut</button>
+                <button class="flavor btn-lg btn-warning" value="caramel">Caramel</button>
+                <button class="flavor btn-lg btn-warning" value="mocha">Mocha</button>
+                <button class="flavor btn-lg btn-danger red" value="none">None</button>
+            </div>
+
+        </div>
+        <div class="orderForm">
+            <form action="/newOrder" method="POST" class="text-center h2">
+                <div class="details">
+                    <label for="name">customer name</label>
+                    <input type="text" placeholder="Customer Name" name="name">
+                </div>
+                <div class="details">
+                    <label>size</label><br>
+                    <input type="text" class="coffeeSize" name="size">
+                </div>
+                <div class="details">
+                    <label>coffee type</label>
+                    <input type="text" class="coffeeOrder" name="coffee">
+                </div>
+                <div class="details">
+                    <label>hot or iced</label>
+                    <input type="text" name="temp" class="coffeeTemp">
+                </div>
+                <div class="details">
+                    <label>cream</label>
+                    <input type="text" class="coffeeCream" name="cream">
+                </div>
+                <div class="details">
+                    <label for="flavor">add flavor?</label>
+                    <input type="text" class="coffeeFlavor" name="flavor">
+                </div>
+                <button type="submit" class="btn btn-light btn-lg">Submit Order</button>
+            </form>
+        </div>
 
     <script src="main.js"></script>
 </body>
+
 </html>

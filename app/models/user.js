@@ -7,6 +7,8 @@ var bcrypt   = require('bcryptjs');
 var userSchema = mongoose.Schema({
 
     local            : {
+        fname        : String,
+        lname        : String,
         email        : String,
         password     : String
         // add additional sign up req. fields again 

@@ -64,21 +64,6 @@ module.exports = function (app, passport, db) {
         })
     })
 
-    // app.put('/messagesDown', (req, res) => {
-    //   db.collection('messages')
-    //   .findOneAndUpdate({name: req.body.name, msg: req.body.msg}, {
-    //     $set: {
-    //       thumbUp:req.body.thumbUp - 1
-    //     }
-    //   }, {
-    //     sort: {_id: -1},
-    //     upsert: true
-    //   }, (err, result) => {
-    //     if (err) return res.send(err)
-    //     res.send(result)
-    //   })
-    // })
-
     app.delete('/orderDelete', (req, res) => {
         console.log(req.body._id)
         orderCollection.findOneAndDelete({ _id: ObjectId(req.body._id) }, (err, result) => {

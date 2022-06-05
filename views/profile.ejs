@@ -3,87 +3,85 @@
 
 <head>
   <!-- Main Profile Page -->
-  <title>Camel Cup</title>
+  <title>Iguazu Cafe</title>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
   <link rel="shortcut icon" href="favicon.ico">
   <script src="https://kit.fontawesome.com/265ed8ed5a.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tiro+Kannada&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mali:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="profile">
-  <div class="container custTwo well">
+  <div class="container cust well">
 
-    <div class="page-header text-center">
-      <h1 class="title"><i class="fa-solid fa-cup-togo"></i>Camel Orders</h1>
-      <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    <div class="text-center">
+      <img src="img/logo.png" alt="logo" class="logo"><br>
+      
+
+        <!-- <h3><span class="fa fa-user"></span> Local</h3> -->
+      <!-- User Information -->
+        <% if (user.local.email) { %>
+          <h3>Welcome, <span><%= user.local.fname %> <%= user.local.lname %></span>!</h3>
+          
+          <p>
+            <!-- <strong>id</strong>: <%= user._id %><br> -->
+            
+              <strong>email</strong>: <span class="userEmail"><%= user.local.email %></span><br>
+                <!-- <strong>password</strong>: <%= user.local.password %> -->
+          </p>
+
+          <!-- <a href="/unlink/local" class="btn btn-danger">Delete Account</a> -->
+          <% } else { %>
+            <a href="/connect/local" class="btn btn-info">Connect Local</a>
+            <% } %>
+      
+      <a href="/logout" class="btn btn-default btn-info">Logout</a>
     </div>
 
+    <!-- Order Forms -->
     <div class="row">
-      <div class="col-sm-6">
-
         <% if (user.local.email) { %>
-      </div>
-      <div class="col-md-6">
-        <h2>Pending Orders</h2>
-        <h1><%= user.local.email %></h1>
+      <div class="col-md-6 pending">
+        <h1 class="lists">Pending Orders</h1>
+        <h2 class="name"><%= user.local.fname %></h2>
         <% for (let i = 0; i < orders.length; i++) {%>
-          <section id="<%=orders[i]._id%>">
-            <span>#<%=i+1%></span>
-            <h3><%=orders[i].name%></h3>
-            <h4><%=orders[i].coffee%></h4>
-            <span><%=orders[i].size%></span>
-            <span><%=orders[i].temp%></span>
-            <span><%=orders[i].cream%></span>
-            <span><%=orders[i].flavor%></span>
-            <span><%=orders[i].completed%></span>
-            <span><i class="fa-solid fa-circle-check"></i></span>
-            <span><i class="fa fa-ban" aria-hidden="true"></i></span>
+          <section id="<%=orders[i]._id%>" class="note uno">
+            <span class="h3">#<%=i+1%></span>
+            <span class="h3">Customer Name: <%=orders[i].name%></span>
+            <p>Coffee: <%=orders[i].coffee%></p>
+            <p>Size: <%=orders[i].size%></p>
+            <p>Temperature: <%=orders[i].temp%></p>
+            <p>Cream: <%=orders[i].cream%></p>
+            <p>Flavor: <%=orders[i].flavor%></p>
+            <span>Complete Order: <i class="fa-solid fa-circle-check fa-xxl"></i> </span>
+            <span>Delete Order: <i class="fa fa-ban fa-xxl" aria-hidden="true"></i></span>
+          </section>
+        <%}%>
+      </div>
+      <div class="col-sm-6 completed">
+        <h1 class="lists">Finished Orders</h1>
+        <% for (let i = 0; i < done.length; i++) {%>
+          <section id="<%=done[i]._id%>" class="note">
+            <!-- <span>#<%=i+1%></span> -->
+            <h3 class="sayMe"><%=done[i].name%>'s order is <strong>ready.</strong></h3>
+            <p><strong>Completed by: <%=done[i].barista%></strong></p>
+            <p>Coffee: <%=done[i].coffee%></p>
+            <p>Size: <%=done[i].size%></p>
+            <p>Temp: <%=done[i].temp%></p>
+            <p>Cream: <%=done[i].cream%></p>
+            <p>Flavor: <%=done[i].flavor%></p>
+            <!-- <p>Completed: <%=done[i].completed%></p> -->
+            <!-- <span><i class="fa-solid fa-circle-check"></i></span> -->
+            <p>Delivered: <i class="fa fa-ban fa-xxl" aria-hidden="true"></i></p>
           </section>
         <%}%>
       </div>
     </div>
 
     <% } %>
-    <div class="row">
-            <!-- LOCAL INFORMATION -->
-            <div class="col-sm-6">
-
-              <h3><span class="fa fa-user"></span> Local</h3>
-      
-              <% if (user.local.email) { %>
-                <p>
-                  <strong>id</strong>: <%= user._id %><br>
-                    <strong>email</strong>: <span class="userEmail"><%= user.local.email %></span><br>
-                      <strong>password</strong>: <%= user.local.password %>
-                </p>
-      
-                <a href="/unlink/local" class="btn btn-default">Delete Account</a>
-                <% } else { %>
-                  <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                  <% } %>
-            </div>
-            <div class="col-sm-6">
-              <h1>Finished Orders</h1>
-              <% for (let i = 0; i < done.length; i++) {%>
-                <section id="<%=done[i]._id%>">
-                  <span>#<%=i+1%></span>
-                  <h3><%=done[i].barista%> completed: <%=done[i].name%>'s order</h3>
-                  <h4><%=done[i].coffee%></h4>
-                  <span><%=done[i].size%></span>
-                  <span><%=done[i].temp%></span>
-                  <span><%=done[i].cream%></span>
-                  <span><%=done[i].flavor%></span>
-                  <span><%=done[i].completed%></span>
-                  <!-- <span><i class="fa-solid fa-circle-check"></i></span> -->
-                  <span><i class="fa fa-ban" aria-hidden="true"></i></span>
-                </section>
-              <%}%>
-            </div>
-    </div>
   </div>
   
 
