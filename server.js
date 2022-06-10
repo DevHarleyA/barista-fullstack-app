@@ -1,6 +1,8 @@
 // server.js
 
 // set up ======================================================================
+require('dotenv').config()
+console.log(process.env)
 var express  = require('express');
 var app      = express();
 var port     = process.env.PORT || 8080;
