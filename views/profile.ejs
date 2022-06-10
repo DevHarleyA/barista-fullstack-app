@@ -46,7 +46,7 @@
         <% if (user.local.email) { %>
       <div class="col-md-6 pending">
         <h1 class="lists">Pending Orders</h1>
-        <h2 class="name"><%= user.local.fname %></h2>
+        <h2 class="name barista"><%= user.local.fname %></h2>
         <% for (let i = 0; i < orders.length; i++) {%>
           <section id="<%=orders[i]._id%>" class="note uno">
             <span class="h3">#<%=i+1%></span>
@@ -64,7 +64,7 @@
       <div class="col-sm-6 completed">
         <h1 class="lists">Finished Orders</h1>
         <% for (let i = 0; i < done.length; i++) {%>
-          <section id="<%=done[i]._id%>" class="note">
+          <section id="<%=done[i]._id%>" class="note dos">
             <!-- <span>#<%=i+1%></span> -->
             <h3 class="sayMe"><%=done[i].name%>'s order is <strong>ready.</strong></h3>
             <p><strong>Completed by: <%=done[i].barista%></strong></p>
